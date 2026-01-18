@@ -146,7 +146,7 @@ export default function Message({ message }: MessageProps) {
         <div className="text-sm">{formatMessage(message.text)}</div>
         <p
           className={`text-xs mt-2 ${
-            isBot ? 'text-gray-500 dark:text-gray-400' : 'text-blue-100'
+            isBot ? "text-gray-500 dark:text-gray-400" : "text-blue-100"
           }`}
         >
           {message.timestamp.toLocaleTimeString([], {
