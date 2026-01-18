@@ -12,18 +12,27 @@ export interface ChatMessage {
 }
 
 export default function Chatbot() {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: '1',
-      text: "Hello! ✈️ I'm your Travel Planning Assistant! Let's plan your perfect trip. What city will you be traveling from?",
-      sender: 'bot',
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatInputRef = useRef<ChatInputHandle>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Initialize messages on client side only to avoid hydration mismatch
+  useEffect(() => {
+    if (!isInitialized) {
+      setMessages([
+        {
+          id: '1',
+          text: "Hello! ✈️ I'm your Travel Planning Assistant! Let's plan your perfect trip. What city will you be traveling from?",
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
+      setIsInitialized(true);
+    }
+  }, [isInitialized]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
