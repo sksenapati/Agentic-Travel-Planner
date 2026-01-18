@@ -6,8 +6,12 @@ This project is configured to work with GitHub Codespaces.
 
 1. Open this repository in GitHub Codespaces
 2. Wait for the container to build and dependencies to install
-3. Run `npm run dev` to start the development server
-4. The app will be available on port 3000 (automatically forwarded)
+3. A `.env.local` file will be automatically created from the template
+4. **Important**: Add your API keys to `.env.local`:
+   - `OPENAI_API_KEY` - Your OpenAI API key
+   - `TAVILY_API_KEY` - Your Tavily API key
+5. Run `npm run dev` to start the development server
+6. The app will be available on port 3000 (automatically forwarded)
 
 ## Included Features
 

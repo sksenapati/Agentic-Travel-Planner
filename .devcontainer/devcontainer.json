@@ -17,7 +17,7 @@
     }
   },
 
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "bash .devcontainer/setup-env.sh && npm install",
   
   "customizations": {
     "vscode": {
